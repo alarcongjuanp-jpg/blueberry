@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blueberry | Transformamos Juntos</title>
+<meta name="description" content="Blueberry Logic conecta transporte, almacenamiento, distribución y tecnología en un mismo sistema. Logística y transformación digital en Colombia." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Blueberry Logic — Nos trasnformamos Juntos" />
+<meta property="og:description" content="Transporte, almacenamiento, distribución y tecnología en un mismo sistema." />
+<meta property="og:image" content="https://www.bblogic.com.co/logo.png" />
+<meta property="og:url" content="https://www.bblogic.com.co" />
+<meta property="og:locale" content="es_CO" />
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<meta name="theme-color" content="#4B2C6B">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Blueberry Logic",
+  "image": "https://www.bblogic.com.co/logo.png",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sabaneta",
+    "addressRegion": "Antioquia",
+    "addressCountry": "CO"
+  },
+  "telephone": "+573003473940",
+  "email": "info@bblogic.com.co",
+  "url": "https://www.bblogic.com.co"
+}
+</script>
+
+<style>
+  /* ============ TOKENS — BBLOGIC DESIGN SYSTEM ============ */
+  :root{
+    --purple:#4B2C6B;
+    --purple-dark:#321D49;
+    --purple-light:#70538F;
+    --purple-soft:#F4F0F7;
+    --lilac:#D8C5E6;      /* acento claro para texto/íconos sobre fondo oscuro */
+    --bloom:#D8C5E6;       /* alias de compatibilidad usado en SVG inline */
+
+    --black:#17151A;
+    --dark:#252229;
+    --gray-900:#36323A;
+    --gray-700:#625D67;
+    --gray-500:#8E8991;
+    --gray-300:#DCD8DE;
+    --gray-100:#F7F6F8;
+    --white:#FFFFFF;
+
+    --signal:#25D366; /* reservado para el indicador "en línea" del footer */
+
+    --radius-sm:8px;
+    --radius-md:14px;
+    --radius-lg:22px;
+
+    --shadow-sm:0 5px 20px rgba(30,20,40,.06);
+    --shadow-md:0 15px 45px rgba(30,20,40,.10);
+
+    --transition:all .3s ease;
+
+    --font-body:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--black);
+    background:var(--white);
+  }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--purple);
+    outline-offset:3px;
+  }
+
+  .skip-link{
+    position:absolute; left:-999px; top:0;
+    background:var(--purple); color:#fff;
+    padding:10px 16px; font-family:var(--font-body); font-weight:600; z-index:100;
+  }
+  .skip-link:focus{ left:0; }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-body);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--lilac);
+    margin:0 0 18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:24px;
+    height:2px;
+    background:var(--lilac);
+  }
+  .eyebrow.on-paper{ color:var(--purple); }
+  .eyebrow.on-paper::before{ background:var(--purple); }
+
+  /* ============ HEADER / NAV ============ */
+  .site-header{
+    background:
+      radial-gradient(circle at 80% 15%, rgba(112,83,143,.28), transparent 40%),
+      linear-gradient(135deg, #21162B 0%, #4B2C6B 55%, #67477F 100%);
+    position:relative;
+    overflow:hidden;
+  }
+  .site-header::after{
+    content:"";
+    position:absolute;
+    width:600px; height:600px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:50%;
+    right:-200px; bottom:-260px;
+    pointer-events:none;
+  }
+
+  .top-bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:22px 32px;
+    flex-wrap:wrap;
+    position:relative;
+    z-index:2;
+  }
+
+  .top-bar .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    font-weight:800;
+    font-size:19px;
+    letter-spacing:-.5px;
+    color:#fff;
+  }
+
+  .logo-mark{
+    width:42px;
+    height:42px;
+    flex-shrink:0;
+    background:#fff;
+    color:var(--purple);
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    font-family:var(--font-body);
+    font-size:16px;
+    font-weight:800;
+    letter-spacing:-.5px;
+  }
+
+  .main-nav{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+    font-family:var(--font-body);
+    font-size:14px;
+    font-weight:600;
+  }
+
+  .main-nav a{
+    color:#E5DDEA;
+    text-decoration:none;
+    padding:4px 2px;
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease, color .2s ease;
+  }
+
+  .main-nav a:hover, .main-nav a:focus-visible{
+    color:#fff;
+    border-color:var(--lilac);
+  }
+
+  .nav-cta{
+    background:#fff;
+    color:var(--purple) !important;
+    padding:11px 20px;
+    border-radius:7px;
+    font-weight:700;
+  }
+  .nav-cta:hover, .nav-cta:focus-visible{
+    background:var(--purple-soft);
+    border-color:transparent !important;
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    z-index:2;
+    padding:64px 32px 90px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+
+  .hero h1{
+    font-family:var(--font-body);
+    font-weight:800;
+    color:#fff;
+    font-size:clamp(34px, 5.5vw, 58px);
+    line-height:1.08;
+    letter-spacing:-1.5px;
+    margin:0 0 24px;
+    max-width:820px;
+  }
+
+  .hero h1 em{
+    font-style:normal;
+    color:var(--lilac);
+  }
+
+  .hero p.lede{
+    color:#E5DDEA;
+    font-size:18px;
+    line-height:1.65;
+    max-width:560px;
+    margin:0 0 40px;
+  }
+
+  .hero-cta-group{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:15px;
+    padding:14px 24px;
+    border-radius:7px;
+    text-decoration:none;
+    transition:transform .18s ease, background-color .18s ease, color .18s ease, box-shadow .18s ease;
+    border:1px solid transparent;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+
+  .btn-primary{
+    background:#fff;
+    color:var(--purple) !important;
+  }
+  .btn-primary:hover{ background:var(--purple-soft); box-shadow:var(--shadow-md); }
+
+  .btn-outline{
+    border-color:rgba(255,255,255,.35);
+    color:#fff !important;
+  }
+  .btn-outline:hover{ border-color:#fff; background:rgba(255,255,255,.10); }
+
+  /* ---- signature graphic: ruta -> circuito ---- */
+  .route-graphic{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px 56px;
+    position:relative;
+    z-index:2;
+  }
+  .route-graphic svg{ width:100%; height:auto; display:block; }
+
+  .route-line{
+    fill:none;
+    stroke:var(--bloom);
+    stroke-width:2;
+    stroke-dasharray:2000;
+    stroke-dashoffset:2000;
+    animation:draw 2.6s ease-out forwards;
+  }
+  .route-dashed{ stroke-dasharray:6 8; }
+  .route-node{ fill:var(--lilac); }
+  .route-endpoint{
+    fill:#fff;
+    animation:pulse 2.4s ease-in-out infinite;
+    transform-origin:center;
+  }
+  .route-label{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:11px;
+    letter-spacing:1.5px;
+    fill:#C9B8DA;
+    text-transform:uppercase;
+  }
+
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  @keyframes pulse{
+    0%,100%{ opacity:1; transform:scale(1); }
+    50%{ opacity:.45; transform:scale(1.6); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .route-line{ animation:none; stroke-dashoffset:0; }
+    .route-endpoint{ animation:none; }
+  }
+
+  /* ============ FRANJA STATS ============ */
+  .stats{
+    background:var(--purple-dark);
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:22px 32px;
+  }
+  .stats-row{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    gap:0;
+    flex-wrap:wrap;
+    font-family:var(--font-body);
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.2px;
+    color:#D9CBE5;
+  }
+  .stats-row span{
+    padding:0 24px;
+    border-left:1px solid rgba(255,255,255,.15);
+  }
+  .stats-row span:first-child{ border-left:none; }
+  .stats-row strong{ color:#fff; font-weight:800; }
+
+  @media (max-width:700px){
+    .stats-row span{ border-left:none; padding:4px 14px; }
+  }
+
+  /* ============ SECCIONES GENERALES ============ */
+  section{ padding:96px 32px; }
+  .section-inner{ max-width:1180px; margin:0 auto; }
+
+  /* blueprint dot grid en secciones claras */
+  .bg-blueprint{
+    background-color:var(--gray-100);
+    background-image:radial-gradient(var(--gray-300) 1px, transparent 1px);
+    background-size:28px 28px;
+  }
+
+  /* ============ NOSOTROS ============ */
+  .nosotros-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.5fr;
+    gap:60px;
+    align-items:start;
+  }
+  .nosotros-grid h2{
+    font-family:var(--font-body);
+    font-size:32px;
+    font-weight:800;
+    color:var(--black);
+    margin:0 0 8px;
+    line-height:1.15;
+    letter-spacing:-.5px;
+  }
+  .nosotros-grid p{
+    font-size:18px;
+    line-height:1.75;
+    color:var(--gray-700);
+    margin:0;
+    max-width:640px;
+  }
+  @media (max-width:800px){
+    .nosotros-grid{ grid-template-columns:1fr; gap:24px; }
+  }
+
+  /* ============ NEGOCIOS (manifiesto) ============ */
+  .negocios-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:48px;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .negocios-header h2{
+    font-family:var(--font-body);
+    font-size:32px;
+    font-weight:800;
+    color:var(--black);
+    margin:0;
+    letter-spacing:-.5px;
+  }
+
+  .manifiesto{
+    border-top:1px solid var(--gray-300);
+  }
+
+  .item-negocio{
+    display:grid;
+    grid-template-columns:220px 1fr auto;
+    gap:32px;
+    align-items:center;
+    padding:36px 0;
+    border-bottom:1px solid var(--gray-300);
+    text-decoration:none;
+    color:inherit;
+    transition:padding-left .25s ease;
+  }
+  .item-negocio:hover, .item-negocio:focus-visible{
+    padding-left:12px;
+  }
+
+  .item-negocio .thumb{
+    position:relative;
+    height:140px;
+    overflow:hidden;
+    background:var(--black);
+    border-radius:var(--radius-md);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .item-negocio .thumb::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(160deg, var(--purple), var(--black));
+    mix-blend-mode:multiply;
+    opacity:.85;
+  }
+  .item-negocio .thumb svg{
+    position:relative;
+    z-index:1;
+    width:44px;
+    height:44px;
+    stroke:var(--lilac);
+    fill:none;
+    stroke-width:1.4;
+  }
+
+  .item-negocio .copy .tag{
+    font-family:var(--font-body);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--purple);
+    margin:0 0 6px;
+  }
+  .item-negocio .copy h3{
+    font-family:var(--font-body);
+    font-size:24px;
+    font-weight:800;
+    color:var(--black);
+    margin:0 0 10px;
+  }
+  .item-negocio .copy p{
+    font-size:15.5px;
+    line-height:1.6;
+    color:var(--gray-700);
+    margin:0;
+    max-width:520px;
+  }
+
+  .item-negocio .arrow{
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:14px;
+    color:var(--purple);
+    white-space:nowrap;
+  }
+
+  @media (max-width:760px){
+    .item-negocio{
+      grid-template-columns:1fr;
+      gap:16px;
+    }
+    .item-negocio .thumb{ height:180px; }
+    .item-negocio .arrow{ order:3; }
+  }
+
+  /* ============ CONTACTO ============ */
+  .contacto-section{
+    background:linear-gradient(135deg, var(--purple-dark), var(--purple));
+    color:#fff;
+  }
+  .contacto-grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:60px;
+  }
+  .contacto-section h2{
+    font-family:var(--font-body);
+    font-size:32px;
+    font-weight:800;
+    color:#fff;
+    margin:0 0 18px;
+    max-width:420px;
+    letter-spacing:-.5px;
+  }
+  .contacto-section .lede{
+    color:#D8CDE0;
+    font-size:16px;
+    line-height:1.6;
+    max-width:420px;
+    margin:0 0 32px;
+  }
+
+  .contacto-lista{
+    list-style:none;
+    margin:0; padding:0;
+    font-family:var(--font-body);
+    font-size:14px;
+  }
+  .contacto-lista li{
+    display:flex;
+    justify-content:space-between;
+    padding:16px 0;
+    border-bottom:1px solid rgba(255,255,255,.15);
+    color:#E5DDEA;
+  }
+  .contacto-lista li span:first-child{ color:#C9B3DA; font-weight:600; }
+  .contacto-lista a{ color:#fff; text-decoration:none; }
+  .contacto-lista a:hover{ color:var(--lilac); }
+
+  @media (max-width:800px){
+    .contacto-grid{ grid-template-columns:1fr; gap:36px; }
+  }
+
+  /* ============ FOOTER ============ */
+  footer.site-footer{
+    background:var(--black);
+    border-top:1px solid rgba(255,255,255,.1);
+    padding:22px 32px;
+  }
+  .footer-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    font-family:var(--font-body);
+    font-size:12px;
+    color:var(--gray-500);
+  }
+  .status-dot{
+    display:inline-block;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:#4CD97B;
+    margin-right:8px;
+    animation:blink 2s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .status-dot{ animation:none; } }
+  @keyframes blink{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
+
+  .redes-sociales{ display:flex; gap:14px; }
+  .redes-sociales .icono{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:32px; height:32px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:50%;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .redes-sociales .icono:hover, .redes-sociales .icono:focus-visible{
+    border-color:#fff;
+    transform:translateY(-2px);
+  }
+  .redes-sociales .icono svg{ width:15px; height:15px; }
+</style>
+</head>
+<body>
+<a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="top-bar">
+    <a href="/" aria-label="Ir al inicio de Blueberry Logic" class="logo">
+      <span class="logo-mark" aria-hidden="true">BB</span>
+      <span>Blueberry Logic</span>
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#negocios">Negocios</a>
+      <a href="soluciones-digitales.html">Soluciones Tecnologicas</a>
+      <a href="#contacto" class="nav-cta">Hablemos</a>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <p class="eyebrow"> Sabaneta, Colombia</p>
+    <h1>Un sistema.<br>Cuatro frentes de <em>valor</em>.</h1>
+    <p class="lede">Blueberry Logic integra logística, tecnología, telecomunicaciones y consultoría estratégica en una sola operación — para que tu negocio avance sin fricción.</p>
+    <div class="hero-cta-group">
+      <a href="https://wa.me/573003473940" target="_blank" rel="noopener" class="btn btn-primary">Cotiza por WhatsApp</a>
+      <a href="#negocios" class="btn btn-outline">Ver negocios</a>
+    </div>
+  </div>
+
+  <div class="route-graphic" aria-hidden="true">
+    <svg viewBox="0 0 1180 170" preserveAspectRatio="xMidYMid meet">
+      <circle cx="60" cy="120" r="5" class="route-node" />
+      <path class="route-line route-dashed" d="M60,120 C220,150 320,60 560,80" />
+      <path class="route-line" d="M560,80 L680,80 L680,40 L820,40 L820,100 L960,100 L960,60 L1100,60" />
+      <rect x="1096" y="56" width="8" height="8" class="route-endpoint" />
+      <text x="55" y="145" class="route-label">Procesos</text>
+      <text x="1015" y="50" class="route-label">Tecnología</text>
+    </svg>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stats-row">
+    <span><strong>+10</strong> años de experiencia</span>
+    <span><strong>04</strong> áreas de negocio</span>
+    <span><strong>100%</strong> cobertura Multinacional</span>
+  </div>
+</div>
+
+<main id="contenido">
+  <section id="nosotros" class="bg-blueprint">
+    <div class="section-inner nosotros-grid">
+      <div>
+        <p class="eyebrow on-paper">Quiénes somos</p>
+        <h2>Un sistema, no una lista de servicios.</h2>
+      </div>
+      <p>En Blueberry Logic ofrecemos servicios innovadores y personalizados que fortalecen la cadena de valor de nuestros clientes. Estamos comprometidos con la excelencia operativa y el desarrollo sostenible, aportando soluciones que transforman el sector productivo.</p>
+    </div>
+  </section>
+
+  <section id="negocios">
+    <div class="section-inner">
+      <div class="negocios-header">
+        <h2>Nuestros negocios</h2>
+        <p class="eyebrow on-paper" style="margin:0;">Manifiesto</p>
+      </div>
+
+      <div class="manifiesto">
+        <a href="brochure-bblogic.pdf" target="_blank" rel="noopener" class="item-negocio">
+          <div class="thumb">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="16" width="24" height="16" rx="1.5"/><path d="M28 22h8l6 6v4h-14z"/><circle cx="14" cy="36" r="3.2"/><circle cx="35" cy="36" r="3.2"/><path d="M4 16v-4h16v4"/></svg>
+          </div>
+          <div class="copy">
+            <p class="tag">Negocio</p>
+            <h3>Logística</h3>
+            <p>Transporte, almacenamiento y distribución con altos estándares de calidad y eficiencia.</p>
+          </div>
+          <span class="arrow">Descargar brochure →</span>
+        </a>
+
+        <a href="soluciones-digitales.html" class="item-negocio">
+          <div class="thumb">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="6" width="32" height="9" rx="1.5"/><rect x="8" y="19" width="32" height="9" rx="1.5"/><rect x="8" y="32" width="32" height="9" rx="1.5"/><circle cx="14" cy="10.5" r="1.4" fill="var(--bloom)" stroke="none"/><circle cx="14" cy="23.5" r="1.4" fill="var(--bloom)" stroke="none"/><circle cx="14" cy="36.5" r="1.4" fill="var(--bloom)" stroke="none"/></svg>
+          </div>
+          <div class="copy">
+            <p class="tag">Negocio</p>
+            <h3>Soluciones Tecnologicas</h3>
+            <p>Consultoría M365, plataformas de nube, servicios con IA y seguridad transversal en un solo partner.</p>
+          </div>
+          <span class="arrow">Conocer más →</span>
+        </a>
+
+        <a href="telecomunicaciones.html" class="item-negocio">
+          <div class="thumb">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v10"/><circle cx="24" cy="21" r="4"/><path d="M14 15a14 14 0 0 1 20 0"/><path d="M9 10a19 19 0 0 1 30 0"/><path d="M17 40h14"/><path d="M24 25v15"/></svg>
+          </div>
+          <div class="copy">
+            <p class="tag">Negocio</p>
+            <h3>Telecomunicaciones</h3>
+            <p>Conectividad avanzada y comunicaciones críticas para la industria — soluciones empresariales a la medida.</p>
+          </div>
+          <span class="arrow">Conocer más →</span>
+        </a>
+
+        <a href="soluciones-estrategicas.html" class="item-negocio">
+          <div class="thumb">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 34l10-12 8 8 12-16"/><circle cx="16" cy="22" r="2" fill="var(--bloom)" stroke="none"/><circle cx="24" cy="30" r="2" fill="var(--bloom)" stroke="none"/><circle cx="36" cy="14" r="2" fill="var(--bloom)" stroke="none"/><path d="M6 40h36"/></svg>
+          </div>
+          <div class="copy">
+            <p class="tag">Negocio</p>
+            <h3>Soluciones Estratégicas </h3>
+            <p>Consultoría, transformación digital, optimización de procesos y Desarollo de proyectos.</p>
+          </div>
+          <span class="arrow">Conocer más →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contacto-section">
+    <div class="section-inner contacto-grid">
+      <div>
+        <p class="eyebrow">Hablemos</p>
+        <h2>Cuéntanos qué necesita mover tu operación.</h2>
+        <p class="lede"></p>
+        <a href="https://wa.me/573003473940" target="_blank" rel="noopener" class="btn btn-primary">Escribir por WhatsApp</a>
+      </div>
+      <ul class="contacto-lista">
+        <li><span>Ubicación</span><span>Sabaneta, Antioquia — CO</span></li>
+        <li><span>Teléfono</span><a href="https://wa.me/573003473940" target="_blank" rel="noopener">+57 300 3473940</a></li>
+        <li><span>Correo</span><a href="mailto:info@bblogic.com.co">info@bblogic.com.co</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span><span class="status-dot"></span>Sistema en línea — Blueberry Logic © 2026</span>
+    <div class="redes-sociales">
+      <a href="https://www.instagram.com/blueberry.logic?igsh=NThtcWhnYXdjaHA3" target="_blank" rel="noopener" class="icono" aria-label="Instagram de Blueberry Logic">
+        <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.25.07 1.62.07 4.81 0 3.2 0 3.56-.07 4.81-.15 3.22-1.66 4.77-4.92 4.92-1.25.06-1.62.07-4.85.07-3.2 0-3.56 0-4.81-.07-3.26-.15-4.77-1.71-4.92-4.92-.06-1.25-.07-1.61-.07-4.81 0-3.19 0-3.56.07-4.81.15-3.23 1.66-4.77 4.92-4.92C8.44 2.2 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.5 0-4.74.06-2.35.11-3.39 1.17-3.5 3.5C3.7 8.8 3.7 9.15 3.7 12.3s0 3.5.06 4.74c.11 2.33 1.15 3.39 3.5 3.5 1.24.06 1.6.06 4.74.06s3.5 0 4.74-.06c2.35-.11 3.39-1.17 3.5-3.5.06-1.24.06-1.6.06-4.74s0-3.5-.06-4.74c-.11-2.33-1.15-3.39-3.5-3.5-1.24-.06-1.6-.06-4.74-.06zm0 3.06a5.24 5.24 0 1 1 0 10.48 5.24 5.24 0 0 1 0-10.48zm0 1.8a3.44 3.44 0 1 0 0 6.88 3.44 3.44 0 0 0 0-6.88zm5.4-3.24a1.24 1.24 0 1 1-2.48 0 1.24 1.24 0 0 1 2.48 0z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/blueberry-logic-sas" target="_blank" rel="noopener" class="icono" aria-label="LinkedIn de Blueberry Logic">
+        <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.37V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
