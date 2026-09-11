@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Telecomunicaciones | Blueberry Logic</title>
+<meta name="description" content="Conectividad 4G/5G y WiFi, comunicaciones de misión crítica (MCPTT), IoT industrial, gestión de proyectos TIC, venta de hardware y Radio as a Service (RaaS)." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Telecomunicaciones — Blueberry Logic" />
+<meta property="og:description" content="Conectividad avanzada y comunicaciones críticas para la industria." />
+<meta property="og:url" content="https://www.blueberrys.com.co/telecomunicaciones.html" />
+<meta property="og:locale" content="es_CO" />
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --ink:#12111F;
+    --ink-soft:#1D1B33;
+    --paper:#F1F2F5;
+    --paper-line:#DADCE3;
+    --bloom:#AEC6D8;
+    --violet:#5C3568;
+    --signal:#25D366;
+    --text-on-paper:#1B1A2B;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', 'Segoe UI', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; font-family:var(--font-body); color:var(--text-on-paper); background:var(--paper); }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--signal); outline-offset:3px; }
+
+  .skip-link{ position:absolute; left:-999px; top:0; background:var(--signal); color:var(--ink); padding:10px 16px; font-family:var(--font-mono); z-index:100; }
+  .skip-link:focus{ left:0; }
+
+  .eyebrow{ font-family:var(--font-mono); font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:var(--bloom); margin:0 0 18px; }
+  .eyebrow.on-paper{ color:var(--violet); }
+
+  /* ===== HEADER / NAV ===== */
+  .site-header{ background:var(--ink); position:relative; overflow:hidden; }
+  .top-bar{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:22px 32px; flex-wrap:wrap; position:relative; z-index:2; }
+  .top-bar .logo{ height:44px; width:auto; filter:brightness(0) invert(1); }
+  .main-nav{ display:flex; align-items:center; gap:28px; flex-wrap:wrap; font-family:var(--font-mono); font-size:13px; letter-spacing:1px; text-transform:uppercase; }
+  .main-nav a{ color:var(--bloom); text-decoration:none; padding:4px 2px; border-bottom:1px solid transparent; transition:border-color .2s ease, color .2s ease; }
+  .main-nav a:hover, .main-nav a:focus-visible{ color:#fff; border-color:var(--signal); }
+  .main-nav a.current{ color:#fff; border-color:var(--signal); }
+  .nav-cta{ background:var(--signal); color:var(--ink) !important; padding:9px 18px; border-radius:2px; font-weight:500; }
+  .nav-cta:hover, .nav-cta:focus-visible{ background:#fff; border-color:transparent !important; }
+
+  /* ===== HERO ===== */
+  .hero{ position:relative; z-index:2; padding:64px 32px 80px; max-width:1180px; margin:0 auto; }
+  .breadcrumb{ font-family:var(--font-mono); font-size:12px; color:#75738E; margin:0 0 28px; }
+  .breadcrumb a{ color:var(--bloom); text-decoration:none; }
+  .breadcrumb a:hover{ color:#fff; }
+
+  .hero h1{ font-family:var(--font-display); font-weight:600; color:#fff; font-size:clamp(30px, 4.6vw, 48px); line-height:1.18; letter-spacing:-.4px; margin:0 0 22px; max-width:760px; }
+  .hero h1 em{ font-style:normal; color:var(--bloom); }
+  .hero p.lede{ color:#C7C6D6; font-size:18px; line-height:1.65; max-width:600px; margin:0 0 32px; }
+  .hero-cta-group{ display:flex; gap:16px; flex-wrap:wrap; }
+
+  .btn{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-body); font-weight:600; font-size:15px; padding:14px 24px; border-radius:2px; text-decoration:none; transition:transform .18s ease, background-color .18s ease, color .18s ease; border:1px solid transparent; }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--signal); color:var(--ink) !important; }
+  .btn-primary:hover{ background:#fff; }
+  .btn-outline{ border-color:rgba(255,255,255,.35); color:#fff !important; }
+  .btn-outline:hover{ border-color:#fff; }
+
+  /* industrias servidas — tags en el hero */
+  .industrias{ display:flex; flex-wrap:wrap; gap:10px; margin-top:36px; }
+  .industrias span{
+    font-family:var(--font-mono); font-size:11.5px; letter-spacing:.5px; text-transform:uppercase;
+    color:var(--bloom); border:1px solid rgba(255,255,255,.18); padding:6px 12px; border-radius:20px;
+  }
+
+  section{ padding:88px 32px; }
+  .section-inner{ max-width:1180px; margin:0 auto; }
+  .bg-blueprint{ background-image:radial-gradient(var(--paper-line) 1px, transparent 1px); background-size:28px 28px; }
+
+  .section-head{ max-width:680px; margin:0 auto 56px; text-align:left; }
+  .section-head h2{ font-family:var(--font-display); font-size:30px; font-weight:600; color:var(--ink); margin:0 0 12px; line-height:1.25; }
+  .section-head p{ font-size:16.5px; color:#4A4960; line-height:1.6; margin:0; }
+
+  /* ===== SERVICIOS (grid 3x2) ===== */
+  .servicios-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--paper-line); border:1px solid var(--paper-line); }
+  .servicio{ background:var(--paper); padding:36px 32px; display:flex; flex-direction:column; gap:14px; }
+  .servicio .icon-tile{ width:48px; height:48px; border-radius:2px; background:linear-gradient(160deg, var(--violet), var(--ink)); display:flex; align-items:center; justify-content:center; }
+  .servicio .icon-tile svg{ width:24px; height:24px; stroke:var(--bloom); fill:none; stroke-width:1.5; }
+  .servicio h3{ font-family:var(--font-display); font-size:19px; font-weight:600; color:var(--ink); margin:0; }
+  .servicio p{ font-size:14.5px; line-height:1.6; color:#4A4960; margin:0; }
+  @media (max-width:900px){ .servicios-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:620px){ .servicios-grid{ grid-template-columns:1fr; } }
+
+  /* ===== RAAS destacado ===== */
+  .raas{ background:var(--ink); color:#fff; }
+  .raas-inner{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .raas .tag{ font-family:var(--font-mono); font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--signal); margin:0 0 16px; }
+  .raas h2{ font-family:var(--font-display); font-size:30px; font-weight:600; color:#fff; margin:0 0 18px; line-height:1.3; }
+  .raas p{ font-size:16px; line-height:1.7; color:#C7C6D6; margin:0 0 24px; max-width:480px; }
+  .raas-casos{ display:flex; flex-wrap:wrap; gap:10px; }
+  .raas-casos span{
+    font-family:var(--font-mono); font-size:12px; color:var(--bloom);
+    border:1px solid rgba(255,255,255,.18); padding:6px 12px; border-radius:2px;
+  }
+  .raas-visual{
+    border:1px solid rgba(255,255,255,.15); padding:28px; font-family:var(--font-mono); font-size:13px; color:#C7C6D6;
+  }
+  .raas-visual .row{ display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.1); }
+  .raas-visual .row:last-child{ border-bottom:none; }
+  .raas-visual .row span:first-child{ color:#75738E; }
+  .raas-visual .row span:last-child{ color:#fff; }
+  @media (max-width:800px){ .raas-inner{ grid-template-columns:1fr; gap:36px; } }
+
+  /* ===== CONTACTO ===== */
+  .contacto-section{ background:var(--ink); color:#fff; }
+  .contacto-grid{ display:grid; grid-template-columns:1.2fr 1fr; gap:60px; }
+  .contacto-section h2{ font-family:var(--font-display); font-size:30px; font-weight:600; color:#fff; margin:0 0 16px; max-width:420px; }
+  .contacto-section .lede{ color:#B9B8CC; font-size:16px; line-height:1.6; max-width:420px; margin:0 0 28px; }
+  .contacto-lista{ list-style:none; margin:0; padding:0; font-family:var(--font-mono); font-size:14px; }
+  .contacto-lista li{ display:flex; justify-content:space-between; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.12); color:#C7C6D6; }
+  .contacto-lista li span:first-child{ color:#75738E; }
+  .contacto-lista a{ color:#fff; text-decoration:none; }
+  .contacto-lista a:hover{ color:var(--signal); }
+  @media (max-width:800px){ .contacto-grid{ grid-template-columns:1fr; gap:36px; } }
+
+  footer.site-footer{ background:var(--ink); border-top:1px solid rgba(255,255,255,.1); padding:22px 32px; }
+  .footer-inner{ max-width:1180px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; font-family:var(--font-mono); font-size:12px; color:#75738E; }
+  .status-dot{ display:inline-block; width:7px; height:7px; border-radius:50%; background:#4CD97B; margin-right:8px; animation:blink 2s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce){ .status-dot{ animation:none; } }
+  @keyframes blink{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
+</style>
+</head>
+<body>
+<a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="top-bar">
+    <a href="/" aria-label="Ir al inicio de Blueberry Logic">
+      <img src="logo.png" alt="Blueberry Logic" class="logo" width="150" height="44" />
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="/#nosotros">Nosotros</a>
+      <a href="/#negocios">Negocios</a>
+      <a href="telecomunicaciones.html" class="current">Telecomunicaciones</a>
+      <a href="/#contacto" class="nav-cta">Hablemos</a>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <p class="breadcrumb"><a href="/#negocios">Negocios</a> / Telecomunicaciones</p>
+    <h1>Conectividad avanzada y comunicaciones <em>críticas</em> para la industria.</h1>
+    <p class="lede">Diseñamos, desplegamos y operamos redes y dispositivos de misión crítica para los sectores que no se pueden dar el lujo de perder la señal.</p>
+    <div class="hero-cta-group">
+      <a href="https://wa.me/573003473940" target="_blank" rel="noopener" class="btn btn-primary">Hablar por WhatsApp</a>
+      <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+    </div>
+    <div class="industrias">
+      <span>Seguridad</span>
+      <span>Minería</span>
+      <span>Transporte</span>
+      <span>Utilities</span>
+      <span>Puertos</span>
+      <span>Construcción</span>
+      <span>Eventos</span>
+      <span>Sector petrolero</span>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- Servicios -->
+  <section id="servicios" class="bg-blueprint">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow on-paper">Servicios y actividades</p>
+        <h2>Seis frentes, una sola operación de conectividad.</h2>
+      </div>
+
+      <div class="servicios-grid">
+        <div class="servicio">
+          <div class="icon-tile">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v10"/><circle cx="24" cy="21" r="4"/><path d="M14 15a14 14 0 0 1 20 0"/><path d="M9 10a19 19 0 0 1 30 0"/><path d="M17 40h14"/><path d="M24 25v15"/></svg>
+          </div>
+          <h3>Conectividad inalámbrica 4G/5G y WiFi</h3>
+          <p>Despliegue y optimización de redes privadas o empresariales. Integración de redes celulares o enlaces 4G/5G/WiFi para la industria.</p>
+        </div>
+
+        <div class="servicio">
+          <div class="icon-tile">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="14" y="6" width="20" height="30" rx="6"/><path d="M20 40h8"/><circle cx="24" cy="18" r="3"/><path d="M10 20a14 14 0 0 0 0 6M38 20a14 14 0 0 1 0 6"/></svg>
+          </div>
+          <h3>Aplicaciones MCPTT — Misión Crítica</h3>
+          <p>Venta, configuración y gestión de plataformas de voz, video y datos de misión crítica: geolocalización, geocercas, LMR y sistemas híbridos.</p>
+        </div>
+
+        <div class="servicio">
+          <div class="icon-tile">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="3"/><circle cx="10" cy="10" r="2.5"/><circle cx="38" cy="10" r="2.5"/><circle cx="10" cy="38" r="2.5"/><circle cx="38" cy="38" r="2.5"/><path d="M24 24L10 10M24 24L38 10M24 24L10 38M24 24L38 38"/></svg>
+          </div>
+          <h3>Internet de las Cosas (IoT)</h3>
+          <p>Consultoría para la transformación digital de procesos mediante sensores conectados y plataformas de monitoreo y análisis de datos en campo.</p>
+        </div>
+
+        <div class="servicio">
+          <div class="icon-tile">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="16" r="5"/><circle cx="33" cy="16" r="5"/><path d="M8 38c0-7 4-11 9-11s9 4 9 11M22 38c0-7 4-11 9-11s9 4 9 11"/></svg>
+          </div>
+          <h3>Gestión integral de proyectos</h3>
+          <p>Recursos humanos especializados — ingenieros y consultores — para diseñar, implementar y dar soporte a proyectos TIC de terceros.</p>
+        </div>
+
+        <div class="servicio">
+          <div class="icon-tile">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="14" width="32" height="20" rx="2"/><path d="M16 34v4h16v-4"/><circle cx="24" cy="24" r="4"/><path d="M8 20h4M36 20h4"/></svg>
+          </div>
+          <h3>Venta de hardware (devices)</h3>
+          <p>Comercialización de devices industriales 4G/5G/WiFi, terminales de usuario PTT, gateways y sensores IoT compatibles.</p>
+        </div>
+
+        <div class="servicio">
+          <div class="icon-tile">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 24a14 14 0 0 1 24-10M38 24a14 14 0 0 1-24 10"/><path d="M34 8l4 6-6 2M14 40l-4-6 6-2"/></svg>
+          </div>
+          <h3>Radio as a Service (RaaS)</h3>
+          <p>Esquemas de alquiler donde pagas una mensualidad por infraestructura, soporte y dispositivos — sin inversión inicial en equipos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RaaS destacado -->
+  <section class="raas">
+    <div class="section-inner raas-inner">
+      <div>
+        <p class="tag">Modelo destacado</p>
+        <h2>Radio como Servicio: infraestructura sin comprometer capital.</h2>
+        <p>Cobramos una mensualidad por la infraestructura, el soporte y los dispositivos — ideal para proyectos temporales que necesitan comunicaciones críticas ya, sin inmovilizar inversión en equipos.</p>
+        <div class="raas-casos">
+          <span>Proyectos de construcción</span>
+          <span>Eventos</span>
+          <span>Contratos petroleros temporales</span>
+        </div>
+      </div>
+      <div class="raas-visual">
+        <div class="row"><span>Modalidad</span><span>Radio as a Service</span></div>
+        <div class="row"><span>Incluye</span><span>Infraestructura + soporte + devices</span></div>
+        <div class="row"><span>Facturación</span><span>Mensualidad fija</span></div>
+        <div class="row"><span>Ideal para</span><span>Proyectos temporales</span></div>
+        <div class="row"><span>Inversión inicial</span><span>No requerida</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="contacto-section">
+    <div class="section-inner contacto-grid">
+      <div>
+        <p class="eyebrow">Hablemos</p>
+        <h2>Cuéntanos qué operación necesitas mantener siempre conectada.</h2>
+        <p class="lede"></p>
+        <a href="https://wa.me/573003473940" target="_blank" rel="noopener" class="btn btn-primary">Escribir por WhatsApp</a>
+      </div>
+      <ul class="contacto-lista">
+        <li><span>Ubicación</span><span>Sabaneta, Antioquia — CO</span></li>
+        <li><span>Teléfono</span><a href="https://wa.me/573003473940" target="_blank" rel="noopener">+57 300 3473940</a></li>
+        <li><span>Correo</span><a href="mailto:info@blueberrys.com.co">info@blueberrys.com.co</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span><span class="status-dot"></span>Sistema en línea — Blueberry Logic © 2026</span>
+    <a href="/" style="color:#75738E; text-decoration:none; font-family:var(--font-mono);">← Volver al inicio</a>
+  </div>
+</footer>
+</body>
+</html>
