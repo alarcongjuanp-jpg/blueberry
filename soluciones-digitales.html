@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Soluciones Digitales | Blueberry Logic</title>
+<meta name="description" content="Consultoría M365, plataformas de nube, servicios con IA y seguridad transversal. Modernizamos, asegur amos y potenciamos con IA la operación en la nube de nuestros clientes." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Soluciones Digitales — Blueberry Logic" />
+<meta property="og:description" content="Modernizar, asegurar y potenciar con IA la operación en la nube de tu empresa." />
+<meta property="og:url" content="https://www.bblogic.com.co/soluciones-digitales.html" />
+<meta property="og:locale" content="es_CO" />
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --ink:#12111F;
+    --ink-soft:#1D1B33;
+    --paper:#F1F2F5;
+    --paper-line:#DADCE3;
+    --bloom:#AEC6D8;
+    --violet:#5C3568;
+    --signal:#25D366;
+    --text-on-paper:#1B1A2B;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', 'Segoe UI', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; font-family:var(--font-body); color:var(--text-on-paper); background:var(--paper); }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--signal); outline-offset:3px; }
+
+  .skip-link{ position:absolute; left:-999px; top:0; background:var(--signal); color:var(--ink); padding:10px 16px; font-family:var(--font-mono); z-index:100; }
+  .skip-link:focus{ left:0; }
+
+  .eyebrow{ font-family:var(--font-mono); font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:var(--bloom); margin:0 0 18px; }
+  .eyebrow.on-paper{ color:var(--violet); }
+
+  /* ===== HEADER / NAV ===== */
+  .site-header{ background:var(--ink); position:relative; overflow:hidden; }
+  .top-bar{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:22px 32px; flex-wrap:wrap; position:relative; z-index:2; }
+  .top-bar .logo{ height:44px; width:auto; filter:brightness(0) invert(1); }
+  .main-nav{ display:flex; align-items:center; gap:28px; flex-wrap:wrap; font-family:var(--font-mono); font-size:13px; letter-spacing:1px; text-transform:uppercase; }
+  .main-nav a{ color:var(--bloom); text-decoration:none; padding:4px 2px; border-bottom:1px solid transparent; transition:border-color .2s ease, color .2s ease; }
+  .main-nav a:hover, .main-nav a:focus-visible{ color:#fff; border-color:var(--signal); }
+  .main-nav a.current{ color:#fff; border-color:var(--signal); }
+  .nav-cta{ background:var(--signal); color:var(--ink) !important; padding:9px 18px; border-radius:2px; font-weight:500; }
+  .nav-cta:hover, .nav-cta:focus-visible{ background:#fff; border-color:transparent !important; }
+
+  /* ===== HERO ===== */
+  .hero{ position:relative; z-index:2; padding:64px 32px 80px; max-width:1180px; margin:0 auto; }
+  .breadcrumb{ font-family:var(--font-mono); font-size:12px; color:#75738E; margin:0 0 28px; }
+  .breadcrumb a{ color:var(--bloom); text-decoration:none; }
+  .breadcrumb a:hover{ color:#fff; }
+
+  .hero h1{ font-family:var(--font-display); font-weight:600; color:#fff; font-size:clamp(30px, 4.6vw, 48px); line-height:1.18; letter-spacing:-.4px; margin:0 0 22px; max-width:760px; }
+  .hero h1 em{ font-style:normal; color:var(--bloom); }
+  .hero p.lede{ color:#C7C6D6; font-size:18px; line-height:1.65; max-width:600px; margin:0 0 36px; }
+  .hero-cta-group{ display:flex; gap:16px; flex-wrap:wrap; }
+
+  .btn{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-body); font-weight:600; font-size:15px; padding:14px 24px; border-radius:2px; text-decoration:none; transition:transform .18s ease, background-color .18s ease, color .18s ease; border:1px solid transparent; }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--signal); color:var(--ink) !important; }
+  .btn-primary:hover{ background:#fff; }
+  .btn-outline{ border-color:rgba(255,255,255,.35); color:#fff !important; }
+  .btn-outline:hover{ border-color:#fff; }
+
+  section{ padding:88px 32px; }
+  .section-inner{ max-width:1180px; margin:0 auto; }
+  .bg-blueprint{ background-image:radial-gradient(var(--paper-line) 1px, transparent 1px); background-size:28px 28px; }
+
+  .section-head{ max-width:640px; margin:0 auto 56px; text-align:left; }
+  .section-head h2{ font-family:var(--font-display); font-size:30px; font-weight:600; color:var(--ink); margin:0 0 12px; line-height:1.25; }
+  .section-head p{ font-size:16.5px; color:#4A4960; line-height:1.6; margin:0; }
+
+  /* ===== VALOR (3 columnas) ===== */
+  .valor-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--paper-line); border:1px solid var(--paper-line); }
+  .valor-item{ background:var(--paper); padding:36px 32px; }
+  .valor-item .num{ font-family:var(--font-mono); font-size:12px; color:var(--signal); background:var(--ink); display:inline-block; padding:3px 8px; border-radius:2px; margin-bottom:18px; }
+  .valor-item h3{ font-family:var(--font-display); font-size:19px; font-weight:600; color:var(--ink); margin:0 0 10px; }
+  .valor-item p{ font-size:14.5px; line-height:1.6; color:#4A4960; margin:0; }
+  @media (max-width:800px){ .valor-grid{ grid-template-columns:1fr; } }
+
+  /* ===== PILARES ===== */
+  .pilares-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--paper-line); border:1px solid var(--paper-line); }
+  .pilar{ background:var(--paper); padding:40px; display:flex; flex-direction:column; gap:16px; }
+  .pilar.seguridad{ background:var(--ink); }
+  .pilar .icon-tile{ width:52px; height:52px; border-radius:2px; background:linear-gradient(160deg, var(--violet), var(--ink)); display:flex; align-items:center; justify-content:center; }
+  .pilar.seguridad .icon-tile{ background:linear-gradient(160deg, var(--signal), #0d8f47); }
+  .pilar .icon-tile svg{ width:26px; height:26px; stroke:var(--bloom); fill:none; stroke-width:1.5; }
+  .pilar.seguridad .icon-tile svg{ stroke:var(--ink); }
+  .pilar .tag{ font-family:var(--font-mono); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--violet); margin:0; }
+  .pilar.seguridad .tag{ color:var(--bloom); }
+  .pilar h3{ font-family:var(--font-display); font-size:21px; font-weight:600; color:var(--ink); margin:0; }
+  .pilar.seguridad h3{ color:#fff; }
+  .pilar p{ font-size:15px; line-height:1.6; color:#4A4960; margin:0; }
+  .pilar.seguridad p{ color:#C7C6D6; }
+  .pilar .audiencia{ font-family:var(--font-mono); font-size:11.5px; color:#8B8AA3; margin-top:auto; padding-top:8px; border-top:1px solid var(--paper-line); }
+  .pilar.seguridad .audiencia{ border-top-color:rgba(255,255,255,.15); color:#75738E; }
+  @media (max-width:800px){ .pilares-grid{ grid-template-columns:1fr; } }
+
+  .transversal-note{ font-family:var(--font-mono); font-size:13px; color:var(--violet); text-align:center; margin:28px auto 0; max-width:600px; }
+
+  /* ===== JOURNEY ===== */
+  .journey{ background:var(--ink); color:#fff; }
+  .journey .section-head h2{ color:#fff; }
+  .journey .section-head p{ color:#B9B8CC; }
+
+  .journey-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; position:relative; }
+  .journey-steps::before{
+    content:""; position:absolute; top:26px; left:8%; right:8%; height:1px;
+    background:repeating-linear-gradient(90deg, rgba(255,255,255,.25) 0 6px, transparent 6px 12px);
+  }
+  .journey-step{ position:relative; padding:0 24px; text-align:left; }
+  .journey-step .dot{ width:12px; height:12px; border-radius:50%; background:var(--signal); margin-bottom:22px; position:relative; z-index:1; }
+  .journey-step .tag{ font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--bloom); margin:0 0 6px; text-transform:uppercase; }
+  .journey-step h3{ font-family:var(--font-display); font-size:22px; font-weight:600; margin:0 0 10px; }
+  .journey-step p{ font-size:14.5px; line-height:1.6; color:#B9B8CC; margin:0; }
+  @media (max-width:800px){
+    .journey-steps{ grid-template-columns:1fr; gap:32px; }
+    .journey-steps::before{ display:none; }
+  }
+
+  .journey-insight{
+    margin-top:48px; padding:24px 28px; background:var(--ink-soft);
+    border-left:2px solid var(--signal); font-size:15px; line-height:1.6; color:#C7C6D6; max-width:760px;
+  }
+
+  /* ===== MODELO COMERCIAL (tabla) ===== */
+  .tabla-wrap{ overflow-x:auto; border:1px solid var(--paper-line); }
+  table.modelo{ width:100%; border-collapse:collapse; font-size:14.5px; min-width:640px; }
+  table.modelo th{
+    font-family:var(--font-mono); font-size:11.5px; letter-spacing:1px; text-transform:uppercase;
+    text-align:left; color:var(--bloom); background:var(--ink); padding:16px 20px;
+  }
+  table.modelo td{ padding:18px 20px; border-bottom:1px solid var(--paper-line); color:#3A3950; }
+  table.modelo tr:last-child td{ border-bottom:none; }
+  table.modelo td:first-child{ font-family:var(--font-display); font-weight:600; color:var(--ink); }
+
+  /* ===== CONTACTO ===== */
+  .contacto-section{ background:var(--ink); color:#fff; }
+  .contacto-grid{ display:grid; grid-template-columns:1.2fr 1fr; gap:60px; }
+  .contacto-section h2{ font-family:var(--font-display); font-size:30px; font-weight:600; color:#fff; margin:0 0 16px; max-width:420px; }
+  .contacto-section .lede{ color:#B9B8CC; font-size:16px; line-height:1.6; max-width:420px; margin:0 0 28px; }
+  .contacto-lista{ list-style:none; margin:0; padding:0; font-family:var(--font-mono); font-size:14px; }
+  .contacto-lista li{ display:flex; justify-content:space-between; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.12); color:#C7C6D6; }
+  .contacto-lista li span:first-child{ color:#75738E; }
+  .contacto-lista a{ color:#fff; text-decoration:none; }
+  .contacto-lista a:hover{ color:var(--signal); }
+  @media (max-width:800px){ .contacto-grid{ grid-template-columns:1fr; gap:36px; } }
+
+  footer.site-footer{ background:var(--ink); border-top:1px solid rgba(255,255,255,.1); padding:22px 32px; }
+  .footer-inner{ max-width:1180px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; font-family:var(--font-mono); font-size:12px; color:#75738E; }
+  .status-dot{ display:inline-block; width:7px; height:7px; border-radius:50%; background:#4CD97B; margin-right:8px; animation:blink 2s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce){ .status-dot{ animation:none; } }
+  @keyframes blink{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
+</style>
+</head>
+<body>
+<a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="top-bar">
+    <a href="/" aria-label="Ir al inicio de Blueberry Logic">
+      <img src="logo.png" alt="Blueberry Logic" class="logo" width="150" height="44" />
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="/#nosotros">Nosotros</a>
+      <a href="/#negocios">Negocios</a>
+      <a href="soluciones-digitales.html" class="current">Soluciones Digitales</a>
+      <a href="/#contacto" class="nav-cta">Hablemos</a>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <p class="breadcrumb"><a href="/#negocios">Negocios</a> / Soluciones Tecnologicas</p>
+    <h1>Modernizamos, asegur<em>a</em>mos y potenciamos con <em>IA</em> tu operación en la nube.</h1>
+    <p class="lede">Acompañamos a las empresas en su transformación digital en la nube, con seguridad y eficiencia impulsada por inteligencia artificial — bajo un solo partner, no cuatro proveedores distintos.</p>
+    <div class="hero-cta-group">
+      <a href="https://wa.me/573003473940" target="_blank" rel="noopener" class="btn btn-primary">Hablar por WhatsApp</a>
+      <a href="#pilares" class="btn btn-outline">Ver los 4 pilares</a>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- Propuesta de valor -->
+  <section class="bg-blueprint">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow on-paper">Nuestra propuesta de valor</p>
+        <h2>Un solo partner para toda la operación en la nube.</h2>
+      </div>
+      <div class="valor-grid">
+        <div class="valor-item">
+          <span class="num">01</span>
+          <h3>Un solo partner</h3>
+          <p>M365, nube, IA y seguridad bajo una sola relación comercial — no cuatro proveedores distintos.</p>
+        </div>
+        <div class="valor-item">
+          <span class="num">02</span>
+          <h3>Entrada natural</h3>
+          <p>Casi siempre el cliente entra por M365 o nube, y ahí detectamos gaps de seguridad y oportunidades de IA.</p>
+        </div>
+        <div class="valor-item">
+          <span class="num">03</span>
+          <h3>Modelo recurrente</h3>
+          <p>Servicios administrados (bolsa de horas, suscripción) que generan ingresos continuos, no solo proyectos puntuales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cuatro pilares -->
+  <section id="pilares">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow on-paper">Cuatro pilares, una sola oferta</p>
+        <h2>La seguridad se integra de forma transversal — no es un add-on aparte.</h2>
+      </div>
+
+      <div class="pilares-grid">
+        <div class="pilar">
+          <div class="icon-tile">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="8" width="36" height="24" rx="1.5"/><path d="M6 32l10-8 8 6 18-14"/><circle cx="24" cy="40" r="2" fill="var(--bloom)" stroke="none"/></svg>
+          </div>
+          <p class="tag">Pilar 01</p>
+          <h3>Consultoría M365</h3>
+          <p>Licenciamiento, adopción, gobierno y migración. Ayudamos a licenciar y gobernar M365 maximizando el valor de lo que ya se paga.</p>
+          <p class="audiencia">Para: TI / CIOs</p>
+        </div>
+
+        <div class="pilar">
+          <div class="icon-tile">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 30a8 8 0 0 1 1-16 10 10 0 0 1 19-2 7 7 0 0 1 2 13.8"/><path d="M18 30v8M24 30v8M30 30v8"/></svg>
+          </div>
+          <p class="tag">Pilar 02</p>
+          <h3>Plataformas de Nube</h3>
+          <p>Migración, arquitectura, FinOps y administración continua en Azure y otras nubes — con modelo de servicio, no solo un proyecto puntual.</p>
+          <p class="audiencia">Para: CTOs / Infraestructura</p>
+        </div>
+
+        <div class="pilar">
+          <div class="icon-tile">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="14" y="10" width="20" height="16" rx="2"/><path d="M20 26v4h8v-4M17 6l3 4M31 6l-3 4"/><circle cx="19" cy="17" r="1.6" fill="var(--bloom)" stroke="none"/><circle cx="29" cy="17" r="1.6" fill="var(--bloom)" stroke="none"/><path d="M10 38h28"/></svg>
+          </div>
+          <p class="tag">Pilar 03</p>
+          <h3>Servicios con IA</h3>
+          <p>Automatización de procesos, copilots, agentes y análisis de datos aplicados a operaciones, ventas y atención al cliente.</p>
+          <p class="audiencia">Para: Áreas de negocio</p>
+        </div>
+
+        <div class="pilar seguridad">
+          <div class="icon-tile">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l16 6v10c0 11-7 17-16 20-9-3-16-9-16-20V12z"/><path d="M17 24l5 5 9-11"/></svg>
+          </div>
+          <p class="tag">Pilar 04 — Transversal</p>
+          <h3>Seguridad</h3>
+          <p>Auditoría, cumplimiento, gestión de identidades (Entra ID, MFA) y monitoreo continuo, integrados en cada proyecto.</p>
+          <p class="audiencia">Para: Compliance / CISO</p>
+        </div>
+      </div>
+      <p class="transversal-note">La seguridad no se vende como add-on posterior: se integra en cada proyecto de M365, nube e IA que entregamos.</p>
+    </div>
+  </section>
+
+  <!-- Journey -->
+  <section class="journey">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow">El journey del cliente</p>
+        <h2>Así se conectan los cuatro pilares en una sola narrativa.</h2>
+      </div>
+
+      <div class="journey-steps">
+        <div class="journey-step">
+          <div class="dot"></div>
+          <p class="tag">01 — Modernizar</p>
+          <h3>M365 + Nube</h3>
+          <p>El cliente casi siempre entra por aquí: licenciamiento, adopción o migración de su operación en la nube.</p>
+        </div>
+        <div class="journey-step">
+          <div class="dot"></div>
+          <p class="tag">02 — Asegurar</p>
+          <h3>Seguridad transversal</h3>
+          <p>En el diagnóstico inicial detectamos gaps de seguridad — identidades, cumplimiento, monitoreo.</p>
+        </div>
+        <div class="journey-step">
+          <div class="dot"></div>
+          <p class="tag">03 — Potenciar</p>
+          <h3>IA aplicada</h3>
+          <p>Automatización, copilots y análisis de datos sobre una base ya modernizada y asegurada.</p>
+        </div>
+      </div>
+
+      <p class="journey-insight">TRANSFORMAMOS JUNTOS</p>
+    </div>
+  </section>
+
+  
+
+  <!-- Contacto -->
+  <section id="contacto" class="contacto-section">
+    <div class="section-inner contacto-grid">
+      <div>
+        <p class="eyebrow">Hablemos</p>
+        <h2>Empecemos por donde ya tienes una necesidad hoy.</h2>
+        <p class="lede">M365, nube, IA o seguridad — el diagnóstico inicial es el punto de partida.</p>
+        <a href="https://wa.me/573003473940" target="_blank" rel="noopener" class="btn btn-primary">Escribir por WhatsApp</a>
+      </div>
+      <ul class="contacto-lista">
+        <li><span>Ubicación</span><span>Sabaneta, Antioquia — CO</span></li>
+        <li><span>Teléfono</span><a href="https://wa.me/573003473940" target="_blank" rel="noopener">+57 300 3473940</a></li>
+        <li><span>Correo</span><a href="mailto:info@blueberrys.com.co">info@blueberrys.com.co</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span><span class="status-dot"></span>Sistema en línea — Blueberry Logic © 2026</span>
+    <a href="/" style="color:#75738E; text-decoration:none; font-family:var(--font-mono);">← Volver al inicio</a>
+  </div>
+</footer>
+</body>
+</html>
